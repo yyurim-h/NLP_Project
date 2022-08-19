@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
+    </title>
+    <style>
+        *{font-family: 'Gugi', cursive;}
+        body {
+            background-image: url('https://ifh.cc/g/fmN9ms.png');
+        }
+
+        h1.a {
+            text-align:center;
+            padding-top: 20px;
+        }
+
+        form {
+            /* Just to center the form on the page */
+            margin: 0 auto;
+            width: 350px;
+            height: 650px;
+            background-image : url('https://ifh.cc/g/MOLDVB.jpg');
+            background-size : cover ;
+
+            /* To see the outline of the form */
+            padding: 1em;
+            border: 2px solid #CCC;
+            border-radius: 1em;
+        }
+
+        form div + div {
+            /* div div 사이에 여백 추가*/
+            margin-top: 1em;
+        }
+        label {
+            /* To make sure that all label have the same size and are properly align */
+            display: inline-block;
+            width: 350px;
+            text-align: center;
+            padding-top: 210px;
+        }
+
+        .button {
+            /* To position the buttons to the same position of the text fields */
+            padding-left: 130px; /* same size as the label elements */
+        }
+
+        button {
+            /* This extra margin represent roughly the same space as the space
+            between the labels and their text fields */
+            margin-left: .5em;
+        }
+
+    </style>
+</head>
+<body>
+    <h1 class="a" style="color:white"> 한국사 응용프로그램</h1><br>
+    <form method="POST" action="/calculate">
+        <div>
+            <p><label for="char1"> 질문을 입력해주세요 </label></p>
+            <input type="text" name="char1" style="width:9cm;height:1cm"/>
+        </div>
+        <div class='button'>
+            <button type="submit">분석 수행</button>
+        </div>
+        <div>
+            {% if request.method == 'POST' %}<table border="1" width="350" height="280" align="center">
+                <tr align="center" bgcolor = 0c192a>
+                    <td style="color:white">정답</td>
+                </tr>
+                <tr align="center">
+                    <td>{{ char1 }}</td>
+                </tr>
+            </table>{% endif %}
+        </div>
+    </form>
+</body>
+</html>
